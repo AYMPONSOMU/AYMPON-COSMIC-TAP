@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AYMPON Cosmic Tap</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Orbitron',sans-serif;
+background:#050816;
+overflow:hidden;
+color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+body::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top,#2b1055 0%,transparent 40%),
+radial-gradient(circle at bottom,#0f3460 0%,transparent 35%),
+#050816;
+z-index:-2;
+}
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+background-image:url('https://www.transparenttextures.com/patterns/stardust.png');
+opacity:0.4;
+animation:starsMove 80s linear infinite;
+}
+
+@keyframes starsMove{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
+}
+
+.game-container{
+text-align:center;
+padding:20px;
+width:100%;
+max-width:500px;
+}
+
+.logo{
+font-size:34px;
+color:#ffd700;
+margin-bottom:10px;
+text-shadow:0 0 15px rgba(255,215,0,0.8);
+}
+
+.subtitle{
+font-size:14px;
+color:#d8d8d8;
+margin-bottom:25px;
+}
+
+.score-box{
+background:rgba(255,255,255,0.06);
+padding:20px;
+border-radius:25px;
+margin-bottom:25px;
+border:1px solid rgba(255,215,0,0.3);
+box-shadow:0 0 20px rgba(255,215,0,0.15);
+}
+
+.score-title{
+font-size:18px;
+margin-bottom:10px;
+}
+
+.score{
+font-size:42px;
+color:#00ffcc;
+text-shadow:0 0 15px rgba(0,255,204,0.7);
+}
+
+.tap-button{
+width:260px;
+height:260px;
+border-radius:50%;
+border:none;
+background:radial-gradient(circle,#ffd700,#c58f00);
+font-size:26px;
+font-weight:bold;
+color:#111;
+cursor:pointer;
+box-shadow:
+0 0 30px rgba(255,215,0,0.7),
+0 0 60px rgba(255,215,0,0.5);
+transition:0.15s;
+position:relative;
+overflow:hidden;
+}
+
+.tap-button::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+background:rgba(255,255,255,0.2);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);opacity:0.8;}
+100%{transform:scale(1.5);opacity:0;}
+}
+
+.tap-button:active{
+transform:scale(0.93);
+}
+
+.energy{
+margin-top:25px;
+font-size:18px;
+color:#ffdd57;
+}
+
+.footer{
+margin-top:30px;
+font-size:13px;
+color:#9e9e9e;
+}
+
+.floating-score{
+position:absolute;
+font-size:28px;
+font-weight:bold;
+color:#00ffcc;
+animation:floatUp 1s ease-out forwards;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+0%{
+opacity:1;
+transform:translateY(0);
+}
+100%{
+opacity:0;
+transform:translateY(-120px);
+}
+}
+
+.wallet-btn{
+margin-top:25px;
+padding:14px 25px;
+border:none;
+border-radius:40px;
+background:linear-gradient(45deg,#7f5af0,#2cb67d);
+color:white;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 0 20px rgba(127,90,240,0.5);
+transition:0.3s;
+}
+
+.wallet-btn:hover{
+transform:translateY(-3px);
+}
+
+@media(max-width:600px){
+.tap-button{
+width:220px;
+height:220px;
+font-size:22px;
+}
+
+.logo{
+font-size:28px;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<div class="game-container">
+
+<div class="logo">AYMPON COSMIC TAP</div>
+<div class="subtitle">Tap The Cosmic Energy • Earn Future Rewards</div>
+
+<div class="score-box">
+<div class="score-title">Cosmic Energy</div>
+<div class="score" id="score">0</div>
+</div>
+
+<button class="tap-button" id="tapBtn">
+YANTRA
+</button>
+
+<div class="energy">
+⚡ Planetary Energy Activated
+</div>
+
+<button class="wallet-btn" onclick="connectWallet()">
+Connect MetaMask
+</button>
+
+<div class="footer">
+AYMPON Astro Strategic Global Council
+</div>
+
+</div>
+
+<script>
+let score = 0;
+const scoreDisplay = document.getElementById('score');
+const tapBtn = document.getElementById('tapBtn');
+
+function createFloatingScore(x,y){
+const float = document.createElement('div');
+float.className='floating-score';
+float.innerText='+1';
+float.style.left=x+'px';
+float.style.top=y+'px';
+document.body.appendChild(float);
+
+setTimeout(()=>{
+float.remove();
+},1000);
+}
+
+tapBtn.addEventListener('click',(e)=>{
+score++;
+scoreDisplay.innerText=score;
+
+createFloatingScore(e.clientX,e.clientY);
+
+if(navigator.vibrate){
+navigator.vibrate(40);
+}
+});
+
+async function connectWallet(){
+if(window.ethereum){
+try{
+const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+alert('Wallet Connected: '+accounts[0]);
+}catch(err){
+alert('Connection Rejected');
+}
+}else{
+alert('MetaMask Not Installed');
+}
+}
+</script>
+
+</body>
+</html>
 
