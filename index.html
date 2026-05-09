@@ -225,7 +225,8 @@ AYMPON Astro Strategic Global Council
 </div>
 
 <script>
-let score = 0;
+let score = localStorage.getItem('aymponScore') || 0;
+scoreDisplay.innerText = score;
 const scoreDisplay = document.getElementById('score');
 const tapBtn = document.getElementById('tapBtn');
 
@@ -245,6 +246,7 @@ float.remove();
 tapBtn.addEventListener('click',(e)=>{
 score++;
 scoreDisplay.innerText=score;
+  localStorage.setItem('aymponScore', score);
 
 createFloatingScore(e.clientX,e.clientY);
 
