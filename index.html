@@ -170,9 +170,74 @@ animation:rotateGlow 6s linear infinite;
 
 }
 
-.tap-button:active{
+.tap-button{
 
-transform:scale(0.95);
+width:220px;
+height:220px;
+
+border-radius:50%;
+
+border:none;
+
+cursor:pointer;
+
+background:
+conic-gradient(
+gold,
+orange,
+gold,
+yellow,
+gold
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+box-shadow:
+0 0 20px gold,
+0 0 40px orange;
+
+animation:rotateRing 6s linear infinite;
+
+}
+
+.inner-symbol{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+background:black;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:60px;
+color:gold;
+
+box-shadow:
+0 0 20px gold inset;
+
+font-weight:bold;
+
+}
+
+@keyframes rotateRing{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
 
 }
 
@@ -286,7 +351,9 @@ LEVEL : Cosmic Beginner
 
 <button class="tap-button" id="tapBtn">
 
-✴ TAP ✴
+<div class="inner-symbol">
+☯
+</div>
 
 </button>
 
