@@ -97,7 +97,45 @@ translate(var(--x), var(--y))
 scale(0);
 
 }
+.floating-yantra{
 
+position:absolute;
+
+width:40px;
+height:40px;
+
+pointer-events:none;
+
+animation:floatYantra 1s forwards;
+
+filter:
+drop-shadow(0 0 10px gold);
+
+}
+
+@keyframes floatYantra{
+
+0%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translateY(-120px)
+scale(1.5);
+
+}
+
+  }
 }
 body{
 
@@ -552,6 +590,27 @@ particle.remove();
 }
 
   }
+  function createYantra(x,y){
+
+const yantra=document.createElement('img');
+
+yantra.src='images/yantra.png';
+
+yantra.className='floating-yantra';
+
+yantra.style.left=(x-20)+'px';
+
+yantra.style.top=(y-20)+'px';
+
+document.body.appendChild(yantra);
+
+setTimeout(()=>{
+
+yantra.remove();
+
+},1000);
+
+  }
 function updateLevel(){
 
 const level=document.getElementById('level');
@@ -590,6 +649,7 @@ updateLevel();
 
 createFloatingScore(e.clientX,e.clientY);
 createParticles(e.clientX,e.clientY);
+  createYantra(e.clientX,e.clientY);
 if(navigator.vibrate){
 
 navigator.vibrate(40);
