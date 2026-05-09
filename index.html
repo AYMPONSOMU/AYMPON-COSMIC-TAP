@@ -553,7 +553,10 @@ All Rights Reserved
 const scoreDisplay=document.getElementById('score');
 
 const tapBtn=document.getElementById('tapBtn');
-
+const audioContext = new (
+window.AudioContext ||
+window.webkitAudioContext
+)();
 let score=localStorage.getItem('aymponScore') || 0;
 
 scoreDisplay.innerText=score;
@@ -673,7 +676,27 @@ level.innerText='LEVEL : Cosmic Beginner';
 /* TAP */
 
 tapBtn.addEventListener('click',(e)=>{
+const oscillator =
+audioContext.createOscillator();
 
+const gainNode =
+audioContext.createGain();
+
+oscillator.connect(gainNode);
+
+gainNode.connect(audioContext.destination);
+
+oscillator.type='sine';
+
+oscillator.frequency.value=220;
+
+gainNode.gain.value=0.05;
+
+oscillator.start();
+
+oscillator.stop(
+audioContext.currentTime + 0.08
+);
 score++;
 
 scoreDisplay.innerText=score;
