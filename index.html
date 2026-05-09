@@ -676,6 +676,9 @@ level.innerText='LEVEL : Cosmic Beginner';
 /* TAP */
 
 tapBtn.addEventListener('click',(e)=>{
+  
+audioContext.resume();
+  
 const oscillator =
 audioContext.createOscillator();
 
