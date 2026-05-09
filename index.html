@@ -7,136 +7,17 @@
 <title>AYMPONSOMU COSMIC TAP</title>
 
 <style>
-  .social-links{
 
-margin-top:25px;
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-}
-
-.social-links a{
-
-padding:12px 20px;
-
-background:black;
-
-border:1px solid gold;
-
-border-radius:10px;
-
-color:gold;
-
-text-decoration:none;
-
-font-weight:bold;
-
-box-shadow:0 0 15px gold;
-
-transition:0.3s;
-
-}
-
-.social-links a:hover{
-
-transform:scale(1.05);
-
-background:gold;
-
-color:black;
-
-}
+/* RESET */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
-.particle{
 
-position:absolute;
+/* BODY */
 
-width:12px;
-height:12px;
-
-border-radius:50%;
-
-background:gold;
-
-pointer-events:none;
-
-animation:explode 1s forwards;
-
-box-shadow:
-0 0 10px gold,
-0 0 20px orange;
-
-}
-
-@keyframes explode{
-
-0%{
-
-opacity:1;
-transform:translate(0,0) scale(1);
-
-}
-
-100%{
-
-opacity:0;
-
-transform:
-translate(var(--x), var(--y))
-scale(0);
-
-}
-.floating-yantra{
-
-position:absolute;
-
-width:40px;
-height:40px;
-
-pointer-events:none;
-
-animation:floatYantra 1s forwards;
-
-filter:
-drop-shadow(0 0 10px gold);
-
-}
-
-@keyframes floatYantra{
-
-0%{
-
-opacity:1;
-
-transform:
-translateY(0)
-scale(1);
-
-}
-
-100%{
-
-opacity:0;
-
-transform:
-translateY(-120px)
-scale(1.5);
-
-}
-
-  }
-}
 body{
 
 font-family:Arial,sans-serif;
@@ -155,7 +36,7 @@ align-items:flex-start;
 
 padding-top:40px;
 padding-bottom:100px;
-  
+
 }
 
 /* LOADER */
@@ -295,8 +176,6 @@ outline:none;
 
 user-select:none;
 
-transform:none !important;
-
 background:
 conic-gradient(
 gold,
@@ -316,8 +195,9 @@ box-shadow:
 
 }
 
+/* INNER SYMBOL */
+
 .inner-symbol{
-  animation:rotateRing 6s linear infinite;
 
 width:120px;
 height:120px;
@@ -333,7 +213,13 @@ align-items:center;
 box-shadow:
 0 0 20px gold inset;
 
+overflow:hidden;
+
+position:relative;
+
 }
+
+/* YANTRA IMAGE */
 
 .yantra-image{
 
@@ -342,9 +228,9 @@ height:90px;
 
 object-fit:contain;
 
-border-radius:50%;
-
 pointer-events:none;
+
+animation:spinYantra 4s linear infinite;
 
 filter:
 drop-shadow(0 0 10px gold)
@@ -352,7 +238,9 @@ drop-shadow(0 0 20px orange);
 
 }
 
-@keyframes rotateRing{
+/* ROTATE */
+
+@keyframes spinYantra{
 
 0%{
 transform:rotate(0deg);
@@ -364,7 +252,7 @@ transform:rotate(360deg);
 
 }
 
-/* BUTTON */
+/* WALLET BUTTON */
 
 .wallet-btn{
 
@@ -387,6 +275,54 @@ font-weight:bold;
 cursor:pointer;
 
 box-shadow:0 0 20px gold;
+
+}
+
+/* SOCIAL LINKS */
+
+.social-links{
+
+margin-top:25px;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+.social-links a{
+
+padding:12px 20px;
+
+background:black;
+
+border:1px solid gold;
+
+border-radius:10px;
+
+color:gold;
+
+text-decoration:none;
+
+font-weight:bold;
+
+box-shadow:0 0 15px gold;
+
+transition:0.3s;
+
+}
+
+.social-links a:hover{
+
+transform:scale(1.05);
+
+background:gold;
+
+color:black;
 
 }
 
@@ -421,6 +357,95 @@ transform:translateY(0);
 
 opacity:0;
 transform:translateY(-100px);
+
+}
+
+}
+
+/* PARTICLES */
+
+.particle{
+
+position:absolute;
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:gold;
+
+pointer-events:none;
+
+animation:explode 1s forwards;
+
+box-shadow:
+0 0 10px gold,
+0 0 20px orange;
+
+}
+
+@keyframes explode{
+
+0%{
+
+opacity:1;
+
+transform:
+translate(0,0)
+scale(1);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translate(var(--x), var(--y))
+scale(0);
+
+}
+
+}
+
+/* FLOATING YANTRA */
+
+.floating-yantra{
+
+position:absolute;
+
+width:40px;
+height:40px;
+
+pointer-events:none;
+
+animation:floatYantra 1s forwards;
+
+filter:
+drop-shadow(0 0 10px gold);
+
+}
+
+@keyframes floatYantra{
+
+0%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translateY(-120px)
+scale(1.5);
 
 }
 
@@ -502,8 +527,7 @@ Connect MetaMask
 
 </button>
 
-</div>
-  <div class="social-links">
+<div class="social-links">
 
 <a href="https://x.com/somus1963" target="_blank">
 𝕏 Follow On X
@@ -513,7 +537,9 @@ Connect MetaMask
 ✈ Join Telegram
 </a>
 
-  </div>
+</div>
+
+</div>
 
 <footer class="footer">
 
@@ -524,13 +550,13 @@ All Rights Reserved
 
 <script>
 
-const scoreDisplay = document.getElementById('score');
+const scoreDisplay=document.getElementById('score');
 
-const tapBtn = document.getElementById('tapBtn');
+const tapBtn=document.getElementById('tapBtn');
 
-let score = localStorage.getItem('aymponScore') || 0;
+let score=localStorage.getItem('aymponScore') || 0;
 
-scoreDisplay.innerText = score;
+scoreDisplay.innerText=score;
 
 updateLevel();
 
@@ -558,7 +584,8 @@ float.remove();
 
 }
 
-/* LEVEL */
+/* PARTICLES */
+
 function createParticles(x,y){
 
 for(let i=0;i<12;i++){
@@ -591,8 +618,11 @@ particle.remove();
 
 }
 
-  }
-  function createYantra(x,y){
+}
+
+/* FLOATING YANTRA */
+
+function createYantra(x,y){
 
 const yantra=document.createElement('img');
 
@@ -612,7 +642,10 @@ yantra.remove();
 
 },1000);
 
-  }
+}
+
+/* LEVEL */
+
 function updateLevel(){
 
 const level=document.getElementById('level');
@@ -650,8 +683,11 @@ localStorage.setItem('aymponScore',score);
 updateLevel();
 
 createFloatingScore(e.clientX,e.clientY);
+
 createParticles(e.clientX,e.clientY);
-  createYantra(e.clientX,e.clientY);
+
+createYantra(e.clientX,e.clientY);
+
 if(navigator.vibrate){
 
 navigator.vibrate(40);
@@ -705,4 +741,4 @@ document.getElementById('loader').style.display='none';
 </script>
 
 </body>
-</html>
+  </html>
