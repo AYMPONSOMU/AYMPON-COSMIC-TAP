@@ -224,49 +224,85 @@ AYMPON Astro Strategic Global Council
 
 </div>
 
+
 <script>
-let score = localStorage.getItem('aymponScore') || 0;
-scoreDisplay.innerText = score;
+
 const scoreDisplay = document.getElementById('score');
 const tapBtn = document.getElementById('tapBtn');
 
+let score = localStorage.getItem('aymponScore') || 0;
+
+scoreDisplay.innerText = score;
+
 function createFloatingScore(x,y){
+
 const float = document.createElement('div');
+
 float.className='floating-score';
+
 float.innerText='+1';
+
 float.style.left=x+'px';
+
 float.style.top=y+'px';
+
 document.body.appendChild(float);
 
 setTimeout(()=>{
+
 float.remove();
+
 },1000);
+
 }
 
 tapBtn.addEventListener('click',(e)=>{
+
 score++;
+
 scoreDisplay.innerText=score;
-  localStorage.setItem('aymponScore', score);
+
+localStorage.setItem('aymponScore', score);
 
 createFloatingScore(e.clientX,e.clientY);
 
 if(navigator.vibrate){
+
 navigator.vibrate(40);
+
 }
+
 });
 
 async function connectWallet(){
+
 if(window.ethereum){
+
 try{
-const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+
+const accounts = await ethereum.request({
+
+method: 'eth_requestAccounts'
+
+});
+
 alert('Wallet Connected: '+accounts[0]);
+
 }catch(err){
+
 alert('Connection Rejected');
+
 }
+
 }else{
+
 alert('MetaMask Not Installed');
+
 }
+
 }
+
+
 </script>
 
 </body>
