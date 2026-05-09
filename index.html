@@ -15,6 +15,75 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
+  /* MINI YANTRAS */
+
+.mini-yantra{
+
+position:fixed;
+
+width:55px;
+height:55px;
+
+object-fit:contain;
+
+z-index:1;
+
+opacity:0.8;
+
+filter:
+drop-shadow(0 0 10px gold);
+
+animation:floatMini 6s ease-in-out infinite;
+
+}
+
+/* POSITIONS */
+
+.yantra1{
+
+top:120px;
+left:15px;
+
+}
+
+.yantra2{
+
+top:120px;
+right:15px;
+
+}
+
+.yantra3{
+
+bottom:140px;
+left:20px;
+
+}
+
+.yantra4{
+
+bottom:140px;
+right:20px;
+
+}
+
+/* FLOAT */
+
+@keyframes floatMini{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
 
 /* BODY */
 
@@ -486,7 +555,13 @@ color:rgba(255,255,255,0.6);
 </div>
 
 <!-- GAME -->
+<img src="images/agni.png" class="mini-yantra yantra1">
 
+<img src="images/lakshmi.png" class="mini-yantra yantra2">
+
+<img src="images/navagraha.png" class="mini-yantra yantra3">
+
+<img src="images/shakti.png" class="mini-yantra yantra4">
 <div class="game-container">
 
 <h1 class="title">
