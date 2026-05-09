@@ -58,7 +58,47 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
+.particle{
 
+position:absolute;
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:gold;
+
+pointer-events:none;
+
+animation:explode 1s forwards;
+
+box-shadow:
+0 0 10px gold,
+0 0 20px orange;
+
+}
+
+@keyframes explode{
+
+0%{
+
+opacity:1;
+transform:translate(0,0) scale(1);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translate(var(--x), var(--y))
+scale(0);
+
+}
+
+}
 body{
 
 font-family:Arial,sans-serif;
@@ -474,7 +514,39 @@ float.remove();
 }
 
 /* LEVEL */
+function createParticles(x,y){
 
+for(let i=0;i<12;i++){
+
+const particle=document.createElement('div');
+
+particle.className='particle';
+
+particle.style.left=x+'px';
+
+particle.style.top=y+'px';
+
+particle.style.setProperty(
+'--x',
+(Math.random()*200-100)+'px'
+);
+
+particle.style.setProperty(
+'--y',
+(Math.random()*200-100)+'px'
+);
+
+document.body.appendChild(particle);
+
+setTimeout(()=>{
+
+particle.remove();
+
+},1000);
+
+}
+
+  }
 function updateLevel(){
 
 const level=document.getElementById('level');
@@ -512,7 +584,7 @@ localStorage.setItem('aymponScore',score);
 updateLevel();
 
 createFloatingScore(e.clientX,e.clientY);
-
+createParticles(e.clientX,e.clientY);
 if(navigator.vibrate){
 
 navigator.vibrate(40);
