@@ -203,6 +203,22 @@ animation:rotateRing 6s linear infinite;
 }
 
 .inner-symbol{
+  .yantra-image{
+
+width:90px;
+height:90px;
+
+object-fit:contain;
+
+border-radius:50%;
+
+pointer-events:none;
+
+filter:
+drop-shadow(0 0 10px gold)
+drop-shadow(0 0 20px orange);
+
+  }
 
 width:120px;
 height:120px;
@@ -352,7 +368,9 @@ LEVEL : Cosmic Beginner
 <button class="tap-button" id="tapBtn">
 
 <div class="inner-symbol">
-☯
+
+<img src="images/yantra.png" class="yantra-image">
+
 </div>
 
 </button>
