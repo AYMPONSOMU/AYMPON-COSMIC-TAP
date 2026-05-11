@@ -848,16 +848,34 @@ document.getElementById('loader').style.display='none';
 
 });
 
-</script>
-<script>
-function saveName() {
-   const name = document.getElementById("playerName").value;
+<div style="
+text-align:center;
+margin-top:20px;
+position:absolute;
+top:10px;
+width:100%;
+z-index:999;
+">
+  <input type="text"
+  id="playerName"
+  placeholder="Enter Your Cosmic Name"
+  style="
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  text-align:center;
+  ">
 
-   localStorage.setItem("cosmicPlayer", name);
-
-   alert("Welcome " + name);
-}
-</script>
+  <button onclick="saveName()"
+  style="
+  padding:10px 15px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  ">
+  Save
+  </button>
+</div>
 </body>
   <div style="text-align:center; margin-top:20px;">
   <input type="text" id="playerName" placeholder="Enter Your Cosmic Name">
