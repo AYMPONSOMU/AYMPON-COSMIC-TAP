@@ -552,20 +552,29 @@ color:rgba(255,255,255,0.6);
 </head>
 
 <body>
-  <div style="text-align:center; margin-top:20px;">
+  <div style="text-align:center; margin-top:40px;">
 
   <a href="about.html"
      style="
-     display:inline-block;
-     background:#00ffff;
+     display:inline-flex;
+     justify-content:center;
+     align-items:center;
+     width:80px;
+     height:80px;
+     background:radial-gradient(circle, #00ffff, #0066ff);
      color:black;
-     padding:12px 25px;
-     border-radius:12px;
+     border-radius:50%;
      text-decoration:none;
      font-weight:bold;
-     ">
+     box-shadow:0 0 15px #00ffff;
+     transition:0.3s;
+     "
 
-     ABOUT COSMIC GAME
+     onmouseover="this.style.transform='scale(1.2)'"
+     onmouseout="this.style.transform='scale(1)'"
+  >
+
+     INFO
 
   </a>
 
