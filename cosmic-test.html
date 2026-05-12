@@ -887,33 +887,37 @@ navigator.vibrate(40);
 
 /* WALLET */
 
+async<script>
+
 async function connectWallet(){
 
 if(window.ethereum){
 
 try{
 
-const accounts=await ethereum.request({
-
+const accounts = await ethereum.request({
 method:'eth_requestAccounts'
-
 });
 
-alert('Wallet Connected: '+accounts[0]);
+document.getElementById("walletAddress")
+.innerText =
+"🟢 CONNECTED: " + accounts[0];
 
-}catch(err){
+}catch(error){
 
-alert('Connection Rejected');
+alert("Connection Cancelled");
 
 }
 
 }else{
 
-alert('MetaMask Not Installed');
+alert("MetaMask Not Installed");
 
 }
 
 }
+
+</script>
 
 /* LOADER */
 
