@@ -1118,15 +1118,50 @@ document.getElementById('loader').style.display='none';
 
 function claimReward(){
 
+let lastClaim=
+localStorage.getItem('lastClaim');
+
+let now=Date.now();
+
+if(lastClaim){
+
+let diff=
+now - parseInt(lastClaim);
+
+let hours=
+diff / (1000*60*60);
+
+if(hours < 24){
+
+alert(
+'⏳ Daily Reward Already Claimed!'
+);
+
+return;
+
+}
+
+}
+
 score=parseInt(score)+100;
 
 scoreDisplay.innerText=score;
 
-localStorage.setItem('aymponScore',score);
+localStorage.setItem(
+'aymponScore',
+score
+);
 
-alert('🎁 +100 Cosmic Energy Claimed!');
+localStorage.setItem(
+'lastClaim',
+now
+);
 
-}
+alert(
+'🎁 +100 Cosmic Energy Claimed!'
+);
+
+  }
 
 /* SHARE GAME */
 
