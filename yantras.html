@@ -1,1 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sacred Yantras</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:black;
+color:white;
+font-family:sans-serif;
+text-align:center;
+
+overflow-x:hidden;
+
+}
+
+/* NAVIGATION */
+
+.nav{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+
+padding-top:20px;
+
+}
+
+.nav a{
+
+padding:10px 15px;
+
+text-decoration:none;
+
+border-radius:10px;
+
+font-weight:bold;
+
+box-shadow:0 0 15px rgba(255,255,255,0.2);
+
+transition:0.3s;
+
+}
+
+.nav a:hover{
+
+transform:scale(1.08);
+
+}
+
+/* HERO */
+
+.hero{
+
+padding:60px 20px 30px;
+
+}
+
+.hero h1{
+
+font-size:48px;
+
+color:#ffaa00;
+
+text-shadow:
+0 0 20px orange,
+0 0 40px gold;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+color:#ccc;
+
+line-height:1.8;
+
+}
+
+/* GALLERY */
+
+.gallery{
+
+width:95%;
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+padding:30px;
+
+}
+
+/* CARD */
+
+.card{
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(255,170,0,0.2);
+
+border-radius:25px;
+
+padding:20px;
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 0 20px rgba(255,170,0,0.1);
+
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 30px rgba(255,170,0,0.3);
+
+}
+
+/* IMAGE */
+
+.card img{
+
+width:100%;
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(255,170,0,0.5);
+
+}
+
+/* TITLE */
+
+.card h2{
+
+margin-top:20px;
+
+color:#ffaa00;
+
+text-shadow:0 0 10px orange;
+
+}
+
+/* DESCRIPTION */
+
+.card p{
+
+margin-top:15px;
+
+line-height:1.8;
+
+color:#ddd;
+
+font-size:16px;
+
+}
+
+/* BUTTON */
+
+.yantra-btn{
+
+margin-top:20px;
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:12px;
+
+background:
+linear-gradient(45deg,
+gold,
+orange);
+
+color:black;
+
+font-weight:bold;
+
+font-size:16px;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px gold;
+
+transition:0.3s;
+
+}
+
+.yantra-btn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 25px gold,
+0 0 40px orange;
+
+}
+
+/* POWER */
+
+.power{
+
+margin-top:15px;
+
+display:inline-block;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+background:rgba(255,170,0,0.15);
+
+border:1px solid orange;
+
+color:gold;
+
+font-size:14px;
+
+box-shadow:0 0 10px rgba(255,170,0,0.3);
+
+}
+
+/* FOOTER */
+
+.footer{
+
+margin-top:60px;
+
+padding:20px;
+
+font-size:13px;
+
+color:rgba(255,255,255,0.5);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+
+<a href="index.html"
+style="
+background:#00ffff;
+color:black;
+">
+🏠 HOME
+</a>
+
+<a href="about.html"
+style="
+background:#ff00ff;
+color:white;
+">
+ℹ INFO
+</a>
+
+<a href="community.html"
+style="
+background:#00ff99;
+color:black;
+">
+👥 COMMUNITY
+</a>
+
+<a href="yantras.html"
+style="
+background:#ffaa00;
+color:black;
+">
+🔮 YANTRAS
+</a>
+
+<a href="aymptoken.html"
+style="
+background:white;
+color:black;
+">
+🪙 TOKEN
+</a>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>SACRED YANTRAS</h1>
+
+<p>
+
+Mystical geometric symbols transformed into cosmic digital energy forms.
+
+Explore sacred yantras within the evolving AYMPON ecosystem.
+
+</p>
+
+</div>
+
+<!-- GALLERY -->
+
+<div class="gallery">
+
+<!-- CARD 1 -->
+
+<div class="card">
+
+<img src="images/agni.png">
+
+<h2>🔥 AGNI YANTRA</h2>
+
+<p>
+
+Symbol of cosmic fire energy, activation, transformation, and inner spiritual force.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 888
+</div>
+
+<br>
+
+<button class="yantra-btn">
+🔥 ACTIVATE
+</button>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="card">
+
+<img src="images/lakshmi.png">
+
+<h2>✨ LAKSHMI YANTRA</h2>
+
+<p>
+
+Represents abundance, prosperity, attraction, harmony, and sacred wealth energy.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 999
+</div>
+
+<br>
+
+<button class="yantra-btn">
+✨ UNLOCK
+</button>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="card">
+
+<img src="images/navagraha.png">
+
+<h2>🪐 NAVAGRAHA YANTRA</h2>
+
+<p>
+
+Inspired by planetary balance, celestial influence, and cosmic alignment energies.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 777
+</div>
+
+<br>
+
+<button class="yantra-btn">
+🪐 ALIGN
+</button>
+
+</div>
+
+<!-- CARD 4 -->
+
+<div class="card">
+
+<img src="images/shakti.png">
+
+<h2>⚡ SHAKTI YANTRA</h2>
+
+<p>
+
+Represents divine power, spiritual awakening, mystical vibration, and sacred force.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 1000
+</div>
+
+<br>
+
+<button class="yantra-btn">
+⚡ AWAKEN
+</button>
+
+</div>
+
+<!-- CARD 5 -->
+
+<div class="card">
+
+<img src="images/powerart1.jpg">
+
+<h2>🌌 POWER ART YANTRA</h2>
+
+<p>
+
+Mystical geometric energy artwork inspired by sacred cosmic symbolism and spiritual imagination.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 950
+</div>
+
+<br>
+
+<button class="yantra-btn">
+🌌 EXPLORE
+</button>
+
+</div>
+
+<!-- CARD 6 -->
+
+<div class="card">
+
+<img src="images/yantra.png">
+
+<h2>🔱 COSMIC CORE YANTRA</h2>
+
+<p>
+
+The central mystical yantra powering the AYMPON cosmic ecosystem and tap universe.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 1111
+</div>
+
+<br>
+
+<button class="yantra-btn">
+🔱 ENTER CORE
+</button>
+
+</div>
+
+<!-- CARD 7 -->
+
+<div class="card">
+
+<img src="images/yantra2.jpg">
+
+<h2>🌀 ANCIENT ENERGY YANTRA</h2>
+
+<p>
+
+Inspired by ancient sacred geometry traditions and symbolic spiritual patterns.
+
+</p>
+
+<div class="power">
+POWER LEVEL : 920
+</div>
+
+<br>
+
+<button class="yantra-btn">
+🌀 RESONATE
+</button>
+
+</div>
+
+<!-- CARD 8 -->
+
+<div class="card">
+
+<div style="
+height:300px;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:20px;
+background:
+radial-gradient(circle,
+rgba(255,170,0,0.2),
+rgba(0,0,0,0.8));
+box-shadow:0 0 30px rgba(255,170,0,0.3);
+">
+
+<div>
+
+<h2 style="
+font-size:50px;
+color:gold;
+text-shadow:0 0 20px gold;
+">
+
+108
+
+</h2>
+
+<p style="
+margin-top:15px;
+font-size:22px;
+color:#ddd;
+">
+
+Sacred Digital Yantras
+
+</p>
+
+</div>
+
+</div>
+
+<h2>🌠 FUTURE COLLECTION</h2>
+
+<p>
+
+A growing mystical collection of sacred yantras, symbolic geometry, and cosmic digital energy forms.
+
+Future premium expansions and rare collectible yantras are planned within the AYMP ecosystem.
+
+</p>
+
+<div class="power">
+POWER LEVEL : ∞
+</div>
+
+<br>
+
+<button class="yantra-btn">
+🌠 COMING SOON
+</button>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© 2026 AYMPONSOMU COSMIC TAP™  
+All Rights Reserved
+
+</div>
+
+</body>
+</html>
