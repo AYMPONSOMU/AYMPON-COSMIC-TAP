@@ -5,7 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* REWARD PANEL */
 
+.reward-panel{
+
+margin-top:40px;
+
+display:flex;
+flex-direction:column;
+
+gap:25px;
+
+}
+
+.reward-box{
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,170,0,0.2);
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(255,170,0,0.1);
+
+}
+
+.reward-box h3{
+
+color:gold;
+
+margin-bottom:15px;
+
+text-shadow:0 0 10px gold;
+
+}
+
+.reward-box p{
+
+margin-bottom:15px;
+
+color:#ddd;
+
+line-height:1.8;
+
+}
+
+.reward-box button{
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:12px;
+
+background:
+linear-gradient(45deg,
+gold,
+orange);
+
+color:black;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px gold;
+
+transition:0.3s;
+
+}
+
+.reward-box button:hover{
+
+transform:scale(1.05);
+
+}
 *{
 box-sizing:border-box;
 }
@@ -748,7 +828,45 @@ Connect MetaMask
 </button>
 
 <div class="social-links">
+<!-- REWARD PANEL -->
 
+<div class="reward-panel">
+
+<h2>🌌 COSMIC REWARDS</h2>
+
+<div class="reward-box">
+
+<h3>🎁 DAILY REWARD</h3>
+
+<p>
+Claim +100 Cosmic Energy every day.
+</p>
+
+<button onclick="claimReward()">
+CLAIM REWARD
+</button>
+
+</div>
+
+<div class="reward-box">
+
+<h3>🚀 REFERRAL PROGRAM</h3>
+
+<p>
+Invite 10 Friends = Earn 50 AYMP
+</p>
+
+<p>
+1 Referral = +500 Energy
+</p>
+
+<button onclick="shareGame()">
+INVITE FRIENDS
+</button>
+
+</div>
+
+</div>
 <a href="https://x.com/somus1963" target="_blank">
 𝕏 Follow On X
 </a>
@@ -996,7 +1114,31 @@ document.getElementById('loader').style.display='none';
 },2500);
 
 });
+/* DAILY REWARD */
 
+function claimReward(){
+
+score=parseInt(score)+100;
+
+scoreDisplay.innerText=score;
+
+localStorage.setItem('aymponScore',score);
+
+alert('🎁 +100 Cosmic Energy Claimed!');
+
+}
+
+/* SHARE GAME */
+
+function shareGame(){
+
+navigator.clipboard.writeText(
+'https://aymponsomu.github.io/AYMPON-COSMIC-TAP/'
+);
+
+alert('🚀 Game Link Copied! Share With Friends.');
+
+                      }
 </script>
 
 </body>
