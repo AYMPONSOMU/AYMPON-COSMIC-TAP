@@ -1167,13 +1167,35 @@ alert(
 
 function shareGame(){
 
-navigator.clipboard.writeText(
+const shareData={
+
+title:'AYMPON Cosmic Tap',
+
+text:
+'🌌 Tap The Cosmic Energy & Explore Sacred Yantras! 🚀',
+
+url:
 'https://aymponsomu.github.io/AYMPON-COSMIC-TAP/'
+
+};
+
+if(navigator.share){
+
+navigator.share(shareData);
+
+}else{
+
+navigator.clipboard.writeText(
+shareData.url
 );
 
-alert('🚀 Game Link Copied! Share With Friends.');
+alert(
+'🔗 Game Link Copied!'
+);
 
-                      }
+}
+
+  }
 </script>
 
 </body>
