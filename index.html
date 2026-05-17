@@ -410,7 +410,17 @@ font-size:18px;
 color:#00ffff;
 
 }
+<div id="onlinePlayers"
+style="
+margin-top:15px;
+font-size:20px;
+color:#00ffff;
+text-shadow:0 0 10px #00ffff;
+">
 
+🌌 12 Cosmic Players Online
+
+</div>
 /* TAP BUTTON */
 
 .tap-button{
@@ -990,7 +1000,25 @@ float.remove();
 },1000);
 
 }
+/* FAKE ONLINE PLAYERS */
 
+function updatePlayers(){
+
+const players=
+Math.floor(Math.random()*20)+5;
+
+document.getElementById(
+'onlinePlayers'
+).innerText=
+
+'🌌 ' + players +
+' Cosmic Players Online';
+
+}
+
+setInterval(updatePlayers,5000);
+
+updatePlayers();
 /* PARTICLES */
 
 function createParticles(x,y){
