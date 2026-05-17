@@ -1,195 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-/* REWARD PANEL */
-
-.reward-panel{
-
-margin-top:40px;
-
-display:flex;
-flex-direction:column;
-
-gap:25px;
-
-}
-
-.reward-box{
-
-background:
-rgba(255,255,255,0.05);
-
-border:
-1px solid rgba(255,170,0,0.2);
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:
-0 0 20px rgba(255,170,0,0.1);
-
-}
-
-.reward-box h3{
-
-color:gold;
-
-margin-bottom:15px;
-
-text-shadow:0 0 10px gold;
-
-}
-
-.reward-box p{
-
-margin-bottom:15px;
-
-color:#ddd;
-
-line-height:1.8;
-
-}
-
-.reward-box button{
-
-padding:12px 22px;
-
-border:none;
-
-border-radius:12px;
-
-background:
-linear-gradient(45deg,
-gold,
-orange);
-
-color:black;
-
-font-weight:bold;
-
-cursor:pointer;
-
-box-shadow:
-0 0 15px gold;
-
-transition:0.3s;
-
-}
-
-.reward-box button:hover{
-
-transform:scale(1.05);
-
-}
-*{
-box-sizing:border-box;
-}
-
-html, 
-  <div style="
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:rgba(0,0,0,0.9);
-display:flex;
-justify-content:space-around;
-padding:10px 0;
-z-index:9999;
-border-top:2px solid #00ffff;
-backdrop-filter:blur(10px);
-">
-
-<a href="index.html"
-style="
-color:#00ffff;
-text-decoration:none;
-font-size:14px;
-font-weight:bold;
-">
-🏠 HOME
-</a>
-
-<a href="about.html"
-style="
-color:#ff00ff;
-text-decoration:none;
-font-size:14px;
-font-weight:bold;
-">
-ℹ INFO
-</a>
-
-<a href="yantras.html"
-style="
-color:#ffaa00;
-text-decoration:none;
-font-size:14px;
-font-weight:bold;
-">
-🔮 YANTRAS
-</a>
-
-<a href="community.html"
-style="
-color:#00ff99;
-text-decoration:none;
-font-size:14px;
-font-weight:bold;
-">
-👥 COMMUNITY
-</a>
-
-<a href="aymptoken.html"
-style="
-color:white;
-text-decoration:none;
-font-size:14px;
-font-weight:bold;
-">
-🪙 TOKEN
-</a>
-
-</div>body{
-margin:0;
-padding:0;
-overflow-x:hidden;
-width:100%;
-background:black;
-}
-
-img{
-max-width:100%;
-height:auto;
-}
-
-</style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZMH2LWHLF"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-SZMH2LWHLF');
-</script>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-}
-  </style>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>AYMPONSOMU COSMIC TAP</title>
+
+<!-- GOOGLE ANALYTICS -->
+
+<script async
+src="https://www.googletagmanager.com/gtag/js?id=G-SZMH2LWHLF">
+</script>
+
+<script>
+
+window.dataLayer =
+window.dataLayer || [];
+
+function gtag(){
+dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config',
+'G-SZMH2LWHLF');
+
+</script>
 
 <style>
 
@@ -200,7 +41,118 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
-  /* MINI YANTRAS */
+
+html,body{
+
+width:100%;
+overflow-x:hidden;
+background:black;
+font-family:Arial,sans-serif;
+
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+/* BODY */
+
+body{
+
+color:white;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-start;
+
+padding-top:40px;
+padding-bottom:120px;
+
+}
+
+/* GAME CONTAINER */
+
+.game-container{
+
+text-align:center;
+
+padding:30px;
+
+width:100%;
+max-width:500px;
+
+}
+
+/* TITLE */
+
+.title{
+
+font-size:32px;
+
+color:gold;
+
+margin-bottom:10px;
+
+text-shadow:
+0 0 20px gold;
+
+}
+
+.tagline{
+
+font-size:16px;
+
+color:#ccc;
+
+margin-bottom:20px;
+
+}
+
+/* SCORE */
+
+.score{
+
+font-size:42px;
+
+font-weight:bold;
+
+margin:20px 0;
+
+}
+
+/* ENERGY */
+
+.energy{
+
+font-size:18px;
+
+margin-bottom:15px;
+
+color:#00ffff;
+
+}
+
+/* ONLINE PLAYERS */
+
+#onlinePlayers{
+
+margin-top:15px;
+
+font-size:20px;
+
+color:#00ffff;
+
+text-shadow:
+0 0 10px #00ffff;
+
+}
+
+/* MINI YANTRAS */
 
 .mini-yantra{
 
@@ -218,41 +170,30 @@ opacity:0.8;
 filter:
 drop-shadow(0 0 10px gold);
 
-animation:floatMini 6s ease-in-out infinite;
+animation:
+floatMini 6s ease-in-out infinite;
 
 }
 
-/* POSITIONS */
-
 .yantra1{
-
 top:120px;
 left:15px;
-
 }
 
 .yantra2{
-
 top:120px;
 right:15px;
-
 }
 
 .yantra3{
-
 bottom:140px;
 left:20px;
-
 }
 
 .yantra4{
-
 bottom:140px;
 right:20px;
-
 }
-
-/* FLOAT */
 
 @keyframes floatMini{
 
@@ -270,157 +211,6 @@ transform:translateY(0px);
 
 }
 
-/* BODY */
-
-body{
-
-font-family:Arial,sans-serif;
-
-background:black;
-
-color:white;
-
-overflow-x:hidden;
-
-min-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:flex-start;
-
-padding-top:40px;
-padding-bottom:100px;
-
-}
-
-/* LOADER */
-
-#loader{
-
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:black;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-z-index:9999;
-
-}
-
-#loader h1{
-
-font-size:32px;
-color:gold;
-
-margin-bottom:20px;
-
-text-shadow:0 0 20px gold;
-
-animation:pulse 1.5s infinite;
-
-}
-
-#loader p{
-
-font-size:18px;
-color:white;
-
-}
-
-@keyframes pulse{
-
-0%{
-opacity:0.5;
-transform:scale(1);
-}
-
-50%{
-opacity:1;
-transform:scale(1.05);
-}
-
-100%{
-opacity:0.5;
-transform:scale(1);
-}
-
-}
-
-/* GAME */
-
-.game-container{
-
-text-align:center;
-
-padding:30px;
-
-width:100%;
-max-width:500px;
-
-}
-
-.title{
-
-font-size:32px;
-
-margin-bottom:10px;
-
-color:gold;
-
-text-shadow:0 0 20px gold;
-
-}
-
-.tagline{
-
-margin-bottom:20px;
-
-font-size:16px;
-
-color:#ccc;
-
-}
-
-.score{
-
-font-size:42px;
-
-margin:20px 0;
-
-font-weight:bold;
-
-color:white;
-
-}
-
-.energy{
-
-margin-bottom:15px;
-
-font-size:18px;
-
-color:#00ffff;
-
-}
-<div id="onlinePlayers"
-style="
-margin-top:15px;
-font-size:20px;
-color:#00ffff;
-text-shadow:0 0 10px #00ffff;
-">
-
-🌌 12 Cosmic Players Online
-
-</div>
 /* TAP BUTTON */
 
 .tap-button{
@@ -428,17 +218,11 @@ text-shadow:0 0 10px #00ffff;
 width:220px;
 height:220px;
 
-border-radius:50%;
-
 border:none;
 
+border-radius:50%;
+
 cursor:pointer;
-
-outline:none;
-
--webkit-tap-highlight-color:transparent;
-
-user-select:none;
 
 background:
 conic-gradient(
@@ -450,7 +234,9 @@ gold
 );
 
 display:flex;
+
 justify-content:center;
+
 align-items:center;
 
 box-shadow:
@@ -471,15 +257,15 @@ border-radius:50%;
 background:black;
 
 display:flex;
-justify-content:center;
-align-items:center;
 
-box-shadow:
-0 0 20px gold inset;
+justify-content:center;
+
+align-items:center;
 
 overflow:hidden;
 
-position:relative;
+box-shadow:
+0 0 20px gold inset;
 
 }
 
@@ -492,17 +278,14 @@ height:90px;
 
 object-fit:contain;
 
-pointer-events:none;
-
-animation:spinYantra 4s linear infinite;
+animation:
+spinYantra 4s linear infinite;
 
 filter:
 drop-shadow(0 0 10px gold)
 drop-shadow(0 0 20px orange);
 
 }
-
-/* ROTATE */
 
 @keyframes spinYantra{
 
@@ -538,7 +321,128 @@ font-weight:bold;
 
 cursor:pointer;
 
-box-shadow:0 0 20px gold;
+box-shadow:
+0 0 20px gold;
+
+}
+
+/* HOW TO CONNECT */
+
+.connect-box{
+
+margin-top:35px;
+
+padding:25px;
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(0,255,255,0.2);
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(0,255,255,0.1);
+
+}
+
+.connect-box h2{
+
+color:#00ffff;
+
+margin-bottom:20px;
+
+text-shadow:
+0 0 10px #00ffff;
+
+}
+
+.connect-box p{
+
+line-height:1.8;
+
+color:#ddd;
+
+font-size:15px;
+
+}
+
+/* REWARD PANEL */
+
+.reward-panel{
+
+margin-top:40px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+.reward-box{
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,170,0,0.2);
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(255,170,0,0.1);
+
+}
+
+.reward-box h3{
+
+color:gold;
+
+margin-bottom:15px;
+
+text-shadow:
+0 0 10px gold;
+
+}
+
+.reward-box p{
+
+margin-bottom:15px;
+
+color:#ddd;
+
+line-height:1.8;
+
+}
+
+.reward-box button{
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+45deg,
+gold,
+orange
+);
+
+color:black;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px gold;
 
 }
 
@@ -562,31 +466,14 @@ flex-wrap:wrap;
 
 padding:12px 20px;
 
-background:black;
-
-border:1px solid gold;
-
 border-radius:10px;
-
-color:gold;
 
 text-decoration:none;
 
 font-weight:bold;
 
-box-shadow:0 0 15px gold;
-
-transition:0.3s;
-
-}
-
-.social-links a:hover{
-
-transform:scale(1.05);
-
-background:gold;
-
-color:black;
+box-shadow:
+0 0 15px gold;
 
 }
 
@@ -602,7 +489,8 @@ font-weight:bold;
 
 color:gold;
 
-animation:floatUp 1s forwards;
+animation:
+floatUp 1s forwards;
 
 pointer-events:none;
 
@@ -611,17 +499,13 @@ pointer-events:none;
 @keyframes floatUp{
 
 0%{
-
 opacity:1;
 transform:translateY(0);
-
 }
 
 100%{
-
 opacity:0;
 transform:translateY(-100px);
-
 }
 
 }
@@ -641,7 +525,8 @@ background:gold;
 
 pointer-events:none;
 
-animation:explode 1s forwards;
+animation:
+explode 1s forwards;
 
 box-shadow:
 0 0 10px gold,
@@ -684,7 +569,8 @@ height:40px;
 
 pointer-events:none;
 
-animation:floatYantra 1s forwards;
+animation:
+floatYantra 1s forwards;
 
 filter:
 drop-shadow(0 0 10px gold);
@@ -715,6 +601,64 @@ scale(1.5);
 
 }
 
+/* LOADER */
+
+#loader{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:black;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+#loader h1{
+
+font-size:32px;
+
+color:gold;
+
+margin-bottom:20px;
+
+text-shadow:
+0 0 20px gold;
+
+animation:
+pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+opacity:0.5;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.5;
+}
+
+}
+
 /* FOOTER */
 
 .footer{
@@ -729,7 +673,8 @@ text-align:center;
 
 font-size:12px;
 
-color:rgba(255,255,255,0.6);
+color:
+rgba(255,255,255,0.6);
 
 }
 
@@ -738,65 +683,37 @@ color:rgba(255,255,255,0.6);
 </head>
 
 <body>
-  <div style="
-display:flex;
-justify-content:flex-end;
-padding-left:00px;
-margin-top:160px;
-">
 
-  <a href="about.html"
-     style="
-     text-decoration:none;
-     display:flex;
-     flex-direction:column;
-     align-items:center;
-     gap:5px;
-     ">
-
-    <!-- IMAGE BUTTON -->
-    <div style="
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    overflow:hidden;
-    box-shadow:0 0 15px #00ffff;
-    ">
-
-      <img src="images/yourimage.png"
-           style="width:100%; height:100%; object-fit:cover;">
-
-    </div>
-       <span style="
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    text-shadow:0 0 5px black;
-    ">
-      INFO
-    </span>
-
-  </a>
-
-  </div>
 <!-- LOADER -->
 
 <div id="loader">
 
-<h1>AYMPONSOMU COSMIC TAP</h1>
+<h1>
+AYMPONSOMU COSMIC TAP
+</h1>
 
-<p>Loading Cosmic Energy...</p>
+<p>
+Loading Cosmic Energy...
+</p>
 
 </div>
 
+<!-- FLOATING YANTRAS -->
+
+<img src="images/agni.png"
+class="mini-yantra yantra1">
+
+<img src="images/lakshmi.png"
+class="mini-yantra yantra2">
+
+<img src="images/navagraha.png"
+class="mini-yantra yantra3">
+
+<img src="images/shakti.png"
+class="mini-yantra yantra4">
+
 <!-- GAME -->
-<img src="images/agni.png" class="mini-yantra yantra1">
 
-<img src="images/lakshmi.png" class="mini-yantra yantra2">
-
-<img src="images/navagraha.png" class="mini-yantra yantra3">
-
-<img src="images/shakti.png" class="mini-yantra yantra4">
 <div class="game-container">
 
 <h1 class="title">
@@ -815,15 +732,26 @@ Tap The Cosmic Energy
 ⚡ Planetary Energy Activated
 </div>
 
-<div id="level" class="energy">
-LEVEL : Cosmic Beginner
+<div id="onlinePlayers">
+🌌 12 Cosmic Players Online
 </div>
 
-<button class="tap-button" id="tapBtn">
+<div id="level"
+class="energy">
+
+LEVEL : Cosmic Beginner
+
+</div>
+
+<!-- TAP BUTTON -->
+
+<button class="tap-button"
+id="tapBtn">
 
 <div class="inner-symbol">
 
-<img src="images/yantra.png" class="yantra-image">
+<img src="images/yantra.png"
+class="yantra-image">
 
 </div>
 
@@ -831,47 +759,24 @@ LEVEL : Cosmic Beginner
 
 <br>
 
-<button class="wallet-btn" onclick="connectWallet()">
+<!-- WALLET -->
+
+<button class="wallet-btn"
+onclick="connectWallet()">
 
 Connect MetaMask
 
 </button>
+
 <!-- HOW TO CONNECT -->
 
-<div style="
-margin-top:35px;
-padding:25px;
-background:
-rgba(255,255,255,0.05);
+<div class="connect-box">
 
-border:
-1px solid rgba(0,255,255,0.2);
-
-border-radius:20px;
-
-box-shadow:
-0 0 20px rgba(0,255,255,0.1);
-
-max-width:500px;
-margin-left:auto;
-margin-right:auto;
-">
-
-<h2 style="
-color:#00ffff;
-margin-bottom:20px;
-text-shadow:0 0 10px #00ffff;
-">
-
+<h2>
 🦊 HOW TO CONNECT
-
 </h2>
 
-<p style="
-line-height:1.8;
-color:#ddd;
-font-size:15px;
-">
+<p>
 
 1️⃣ Open this game in MetaMask Browser
 
@@ -890,100 +795,168 @@ font-size:15px;
 </p>
 
 </div>
-<div class="social-links">
-<!-- REWARD PANEL -->
+
+<!-- REWARDS -->
 
 <div class="reward-panel">
 
-<h2>🌌 COSMIC REWARDS</h2>
-
 <div class="reward-box">
 
-<h3>🎁 DAILY REWARD</h3>
+<h3>
+🎁 DAILY REWARD
+</h3>
 
 <p>
 Claim +100 Cosmic Energy every day.
 </p>
 
 <button onclick="claimReward()">
+
 CLAIM REWARD
+
 </button>
 
 </div>
 
 <div class="reward-box">
 
-<h3>🚀 REFERRAL PROGRAM</h3>
+<h3>
+🚀 REFERRAL PROGRAM
+</h3>
 
 <p>
-Invite 10 Friends = Earn 50 AYMP
-</p>
-
-<p>
-1 Referral = +500 Energy
+Invite Friends & Share AYMPON
 </p>
 
 <button onclick="shareGame()">
+
 INVITE FRIENDS
+
 </button>
 
 </div>
 
 </div>
-<a href="https://x.com/somus1963" target="_blank">
-𝕏 Follow On X
+
+<!-- SOCIAL LINKS -->
+
+<div class="social-links">
+
+<a href="https://x.com/somus1963"
+target="_blank"
+
+style="
+background:black;
+border:1px solid gold;
+color:gold;
+">
+
+𝕏 X
+
 </a>
 
-<a href="https://t.me/aymponweb3" target="_blank">
-✈ Join Telegram
-</a>
-<a href="https://discord.gg/8eAHxDAac"
+<a href="https://t.me/aymponweb3"
 target="_blank"
+
 style="
-display:inline-block;
-padding:10px 20px;
+background:black;
+border:1px solid #00ffff;
+color:#00ffff;
+">
+
+✈ TELEGRAM
+
+</a>
+
+<a href="https://discord.gg/6Mh8tYPxV"
+target="_blank"
+
+style="
 background:#5865F2;
 color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-margin-top:10px;
 ">
-DISCORD
+
+💬 DISCORD
+
 </a>
+
 </div>
 
 </div>
+
+<!-- FOOTER -->
 
 <footer class="footer">
 
-© 2026 AYMPONSOMU COSMIC TAP™  
-All Rights Reserved
+© 2026 AYMPONSOMU COSMIC TAP™
 
 </footer>
 
 <script>
 
-const scoreDisplay=document.getElementById('score');
+/* SCORE */
 
-const tapBtn=document.getElementById('tapBtn');
-const audioContext = new (
-window.AudioContext ||
-window.webkitAudioContext
-)();
-let score=localStorage.getItem('aymponScore') || 0;
+const scoreDisplay=
+document.getElementById('score');
+
+const tapBtn=
+document.getElementById('tapBtn');
+
+let score=
+localStorage.getItem('aymponScore') || 0;
 
 scoreDisplay.innerText=score;
 
+/* AUDIO */
+
+const audioContext =
+new (
+window.AudioContext ||
+window.webkitAudioContext
+)();
+
+/* LEVEL */
+
 updateLevel();
+
+function updateLevel(){
+
+const level=
+document.getElementById('level');
+
+if(score >= 1000){
+
+level.innerText=
+'LEVEL : Cosmic Master';
+
+}else if(score >= 500){
+
+level.innerText=
+'LEVEL : Astro Warrior';
+
+}else if(score >= 100){
+
+level.innerText=
+'LEVEL : Mystic Explorer';
+
+}else{
+
+level.innerText=
+'LEVEL : Cosmic Beginner';
+
+}
+
+}
 
 /* FLOATING SCORE */
 
 function createFloatingScore(x,y){
 
-const float=document.createElement('div');
+const float=
+document.createElement('div');
 
-float.className='floating-score';
+float.className=
+'floating-score';
 
 float.innerText='+1';
 
@@ -1007,7 +980,8 @@ function createParticles(x,y){
 
 for(let i=0;i<12;i++){
 
-const particle=document.createElement('div');
+const particle=
+document.createElement('div');
 
 particle.className='particle';
 
@@ -1025,7 +999,9 @@ particle.style.setProperty(
 (Math.random()*200-100)+'px'
 );
 
-document.body.appendChild(particle);
+document.body.appendChild(
+particle
+);
 
 setTimeout(()=>{
 
@@ -1041,17 +1017,24 @@ particle.remove();
 
 function createYantra(x,y){
 
-const yantra=document.createElement('img');
+const yantra=
+document.createElement('img');
 
-yantra.src='images/yantra.png';
+yantra.src=
+'images/yantra.png';
 
-yantra.className='floating-yantra';
+yantra.className=
+'floating-yantra';
 
-yantra.style.left=(x-20)+'px';
+yantra.style.left=
+(x-20)+'px';
 
-yantra.style.top=(y-20)+'px';
+yantra.style.top=
+(y-20)+'px';
 
-document.body.appendChild(yantra);
+document.body.appendChild(
+yantra
+);
 
 setTimeout(()=>{
 
@@ -1061,47 +1044,25 @@ yantra.remove();
 
 }
 
-/* LEVEL */
-
-function updateLevel(){
-
-const level=document.getElementById('level');
-
-if(score >= 1000){
-
-level.innerText='LEVEL : Cosmic Master';
-
-}else if(score >= 500){
-
-level.innerText='LEVEL : Astro Warrior';
-
-}else if(score >= 100){
-
-level.innerText='LEVEL : Mystic Explorer';
-
-}else{
-
-level.innerText='LEVEL : Cosmic Beginner';
-
-}
-
-}
-
 /* TAP */
 
-tapBtn.addEventListener('click',(e)=>{
-  
+tapBtn.addEventListener(
+'click',
+(e)=>{
+
 audioContext.resume();
-  
-const oscillator =
+
+const oscillator=
 audioContext.createOscillator();
 
-const gainNode =
+const gainNode=
 audioContext.createGain();
 
 oscillator.connect(gainNode);
 
-gainNode.connect(audioContext.destination);
+gainNode.connect(
+audioContext.destination
+);
 
 oscillator.type='sine';
 
@@ -1114,19 +1075,32 @@ oscillator.start();
 oscillator.stop(
 audioContext.currentTime + 0.08
 );
+
 score++;
 
 scoreDisplay.innerText=score;
 
-localStorage.setItem('aymponScore',score);
+localStorage.setItem(
+'aymponScore',
+score
+);
 
 updateLevel();
 
-createFloatingScore(e.clientX,e.clientY);
+createFloatingScore(
+e.clientX,
+e.clientY
+);
 
-createParticles(e.clientX,e.clientY);
+createParticles(
+e.clientX,
+e.clientY
+);
 
-createYantra(e.clientX,e.clientY);
+createYantra(
+e.clientX,
+e.clientY
+);
 
 if(navigator.vibrate){
 
@@ -1144,45 +1118,45 @@ if(window.ethereum){
 
 try{
 
-const accounts=await ethereum.request({
+const accounts=
+await ethereum.request({
 
-method:'eth_requestAccounts'
+method:
+'eth_requestAccounts'
 
 });
 
-alert('Wallet Connected: '+accounts[0]);
+alert(
+'Wallet Connected: ' +
+accounts[0]
+);
 
 }catch(err){
 
-alert('Connection Rejected');
+alert(
+'Connection Rejected'
+);
 
 }
 
 }else{
 
-alert('MetaMask Not Installed');
+alert(
+'MetaMask Not Installed'
+);
 
 }
 
 }
 
-/* LOADER */
-
-window.addEventListener('load',()=>{
-
-setTimeout(()=>{
-
-document.getElementById('loader').style.display='none';
-
-},2500);
-
-});
 /* DAILY REWARD */
 
 function claimReward(){
 
 let lastClaim=
-localStorage.getItem('lastClaim');
+localStorage.getItem(
+'lastClaim'
+);
 
 let now=Date.now();
 
@@ -1224,7 +1198,7 @@ alert(
 '🎁 +100 Cosmic Energy Claimed!'
 );
 
-  }
+}
 
 /* SHARE GAME */
 
@@ -1232,7 +1206,8 @@ function shareGame(){
 
 const shareData={
 
-title:'AYMPON Cosmic Tap',
+title:
+'AYMPON Cosmic Tap',
 
 text:
 '🌌 Tap The Cosmic Energy & Explore Sacred Yantras! 🚀',
@@ -1258,11 +1233,50 @@ alert(
 
 }
 
-  }
+}
+
+/* ONLINE PLAYERS */
+
+function updatePlayers(){
+
+const players=
+Math.floor(Math.random()*20)+5;
+
+document.getElementById(
+'onlinePlayers'
+).innerText=
+
+'🌌 ' +
+players +
+' Cosmic Players Online';
+
+}
+
+setInterval(
+updatePlayers,
+5000
+);
+
+updatePlayers();
+
+/* LOADER */
+
+window.addEventListener(
+'load',
+()=>{
+
+setTimeout(()=>{
+
+document.getElementById(
+'loader'
+).style.display='none';
+
+},2500);
+
+});
+
 </script>
 
 </body>
-  
+
   </html>
-
-
