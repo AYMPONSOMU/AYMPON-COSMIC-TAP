@@ -1346,7 +1346,133 @@ document.getElementById(
 });
 
 </script>
+<script type="module">
 
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+getDatabase,
+ref,
+set,
+push,
+onValue
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
+
+authDomain: "aympon-cosmic.firebaseapp.com",
+
+databaseURL: "https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+projectId: "aympon-cosmic",
+
+storageBucket: "aympon-cosmic.firebasestorage.app",
+
+messagingSenderId: "522570020265",
+
+appId: "1:522570020265:web:38ca29639f75428896c0b8",
+
+measurementId: "G-Q6MKBT7DQ5"
+
+};
+
+/* INITIALIZE */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+/* PLAYER ID */
+
+let playerId =
+localStorage.getItem("aymp_player");
+
+if(!playerId){
+
+playerId =
+"PLAYER_" +
+Math.floor(Math.random()*9999999);
+
+localStorage.setItem(
+"aymp_player",
+playerId
+);
+
+}
+
+/* SAVE PLAYER */
+
+function savePlayerData(){
+
+const playerRef =
+ref(db,
+"players/" + playerId);
+
+set(playerRef,{
+
+playerId:playerId,
+
+score:score,
+
+lastSeen:Date.now(),
+
+online:true
+
+});
+
+}
+
+/* SAVE EVERY 5 SECONDS */
+
+setInterval(()=>{
+
+savePlayerData();
+
+},5000);
+
+/* ONLINE PLAYERS */
+
+const playersRef =
+ref(db,"players");
+
+onValue(playersRef,(snapshot)=>{
+
+const data=snapshot.val();
+
+if(data){
+
+const total=
+Object.keys(data).length;
+
+const onlineDiv=
+document.getElementById(
+"onlinePlayers"
+);
+
+if(onlineDiv){
+
+onlineDiv.innerHTML =
+"🌌 " +
+total +
+" Cosmic Players Online";
+
+}
+
+}
+
+});
+
+/* SAVE FIRST TIME */
+
+savePlayerData();
+
+</script>
 </body>
 <!-- INFO BUTTON -->
 
