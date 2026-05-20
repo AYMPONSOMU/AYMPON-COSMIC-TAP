@@ -1473,6 +1473,74 @@ total +
 savePlayerData();
 
 </script>
+  <!-- FIREBASE PLAYER SAVE -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+getDatabase,
+ref,
+set
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
+
+authDomain: "aympon-cosmic.firebaseapp.com",
+
+databaseURL:
+"https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+projectId: "aympon-cosmic",
+
+storageBucket:
+"aympon-cosmic.firebasestorage.app",
+
+messagingSenderId: "522570020265",
+
+appId:
+"1:522570020265:web:38ca29639f75428896c0b8",
+
+measurementId: "G-Q6MKBT7DQ5"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+/* CREATE PLAYER */
+
+const playerId =
+"PLAYER_" + Math.floor(Math.random()*9999999);
+
+
+/* SAVE PLAYER */
+
+set(ref(db, 'players/' + playerId), {
+
+joined:
+new Date().toLocaleString(),
+
+energy: 0,
+
+aymp: 0,
+
+device:
+navigator.userAgent
+
+});
+
+console.log("PLAYER SAVED");
+
+</script>
 </body>
 <!-- INFO BUTTON -->
 
