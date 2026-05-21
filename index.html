@@ -1396,10 +1396,47 @@ const db = getDatabase(app);
 
 /* PLAYER ID */
 
-let playerId =
-localStorage.getItem("aymp_player");
+// TELEGRAM LOGIN
 
-if(!playerId){
+const tg =
+window.Telegram.WebApp;
+
+tg.expand();
+
+const user =
+tg.initDataUnsafe.user;
+
+
+let playerId;
+
+let username;
+
+let firstName;
+
+
+if(user){
+
+playerId =
+"TG_" + user.id;
+
+username =
+user.username || "unknown";
+
+firstName =
+user.first_name || "player";
+
+}else{
+
+playerId =
+"TEST_PLAYER";
+
+username =
+"test";
+
+firstName =
+"Test Player";
+
+}
 
 playerId =
 "PLAYER_" +
@@ -1420,19 +1457,24 @@ const playerRef =
 ref(db,
 "players/" + playerId);
 
-set(playerRef,{
+set(playerRef, {
 
-playerId:playerId,
+id: playerId,
 
-score:score,
+name: firstName,
 
-lastSeen:Date.now(),
+username: username,
 
-online:true
+energy: 0,
+
+rank: "Cosmic Explorer",
+
+aymp: 0,
+
+joined:
+new Date().toLocaleString()
 
 });
-
-}
 
 /* SAVE EVERY 5 SECONDS */
 
