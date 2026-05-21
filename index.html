@@ -840,37 +840,50 @@ class="yantra-image">
 <button class="wallet-btn"
 onclick="connectWallet()">
 
-Connect MetaMask
+paste MetaMask wallet address
+
+</button>
+<div id="walletSection"
+style="
+display:none;
+margin-top:20px;
+">
+
+<input
+type="text"
+id="walletInput"
+placeholder="Paste MetaMask Wallet Address"
+style="
+width:90%;
+max-width:400px;
+padding:14px;
+border-radius:12px;
+border:none;
+font-size:16px;
+text-align:center;
+">
+
+<br><br>
+
+<button id="saveWalletBtn"
+style="
+padding:14px 20px;
+border:none;
+border-radius:12px;
+background:gold;
+color:black;
+font-weight:bold;
+font-size:16px;
+">
+
+SAVE WALLET
 
 </button>
 
-<!-- HOW TO CONNECT -->
-
-<div class="connect-box">
-
-<h2>
-🦊 HOW TO CONNECT
-</h2>
-
-<p>
-
-1️⃣ Open this game in MetaMask Browser
-
-<br><br>
-
-2️⃣ Tap "Connect MetaMask"
-
-<br><br>
-
-3️⃣ Approve wallet connection
-
-<br><br>
-
-4️⃣ Start tapping cosmic energy ⚡
-
-</p>
-
 </div>
+
+
+
 
 <!-- REWARDS -->
 
@@ -1394,7 +1407,6 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
-/* PLAYER ID */
 
 // TELEGRAM LOGIN
 
