@@ -1641,6 +1641,31 @@ document.getElementById(
 ).style.display = "block";
 
   }
+  const saveWalletBtn =
+document.getElementById("saveWalletBtn");
+
+
+saveWalletBtn.addEventListener("click", ()=>{
+
+const wallet =
+document.getElementById("walletInput").value;
+
+
+if(wallet.length > 10){
+
+update(playerRef, {
+
+wallet: wallet,
+
+rewardEligible: true
+
+});
+
+alert("Wallet Saved");
+
+}
+
+});
 </script>
 <div id="rewardSection"
 style="
