@@ -1200,43 +1200,20 @@ navigator.vibrate(40);
 });
 
 /* WALLET */
+const connectWalletBtn =
+document.getElementById(
+"connectWalletBtn"
+);
 
-async function connectWallet(){
+connectWalletBtn.addEventListener(
+"click",
+()=>{
 
-if(window.ethereum){
-
-try{
-
-const accounts=
-await ethereum.request({
-
-method:
-'eth_requestAccounts'
+document.getElementById(
+"walletSection"
+).style.display = "block";
 
 });
-
-alert(
-'Wallet Connected: ' +
-accounts[0]
-);
-
-}catch(err){
-
-alert(
-'Connection Rejected'
-);
-
-}
-
-}else{
-
-alert(
-'MetaMask Not Installed'
-);
-
-}
-
-}
 
 /* DAILY REWARD */
 
