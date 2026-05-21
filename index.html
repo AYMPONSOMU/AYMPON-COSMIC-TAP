@@ -1482,7 +1482,40 @@ savePlayerData();
   <!-- FIREBASE PLAYER SAVE -->
 
 <script type="module">
+  const saveWalletBtn =
+document.getElementById("saveWalletBtn");
 
+
+saveWalletBtn.addEventListener("click", ()=>{
+
+const wallet =
+document.getElementById("walletInput").value;
+
+
+if(wallet.length > 10){
+
+update(playerRef, {
+
+wallet: wallet,
+
+rewardEligible: true
+
+});
+
+alert("Wallet Saved Successfully");
+
+}
+
+});
+// REWARD ELIGIBLE
+
+if(energy >= 5000){
+
+document.getElementById(
+"rewardSection"
+).style.display = "block";
+
+}
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
 import {
