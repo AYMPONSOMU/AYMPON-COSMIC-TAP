@@ -1336,7 +1336,30 @@ document.getElementById(
 },2500);
 
 });
+document
+.getElementById("saveWalletBtn")
+.onclick = function(){
 
+const wallet =
+document.getElementById(
+"walletInput"
+).value;
+
+if(wallet.length > 10){
+
+update(playerRef, {
+
+wallet: wallet,
+
+rewardEligible: true
+
+});
+
+alert("Wallet Saved");
+
+}
+
+};
 </script>
 <script type="module">
 
