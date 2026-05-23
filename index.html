@@ -1531,39 +1531,7 @@ total +
 
 });
 
-/* SAVE FIRST TIME */
 
-savePlayerData();
-
-</script>
-  <!-- FIREBASE PLAYER SAVE -->
-
-<script type="module">
-  const saveWalletBtn =
-document.getElementById("saveWalletBtn");
-
-
-saveWalletBtn.addEventListener("click", ()=>{
-
-const wallet =
-document.getElementById("walletInput").value;
-
-
-if(wallet.length > 10){
-
-update(playerRef, {
-
-wallet: wallet,
-
-rewardEligible: true
-
-});
-
-alert("Wallet Saved Successfully");
-
-}
-
-});
 // REWARD ELIGIBLE
 
 if(energy >= 5000){
@@ -1670,55 +1638,78 @@ alert("Wallet Saved");
 
 });
 </script>
-<div id="rewardSection"
-style="
-display:none;
-margin-top:25px;
-">
 
-<h2 style="
-color:gold;
-margin-bottom:15px;
-">
+  <script type="module">
 
-🎁 REWARD ELIGIBLE
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
-</h2>
+import {
+  getDatabase,
+  ref,
+  set,
+  update,
+  onValue
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
-<input
-type="text"
-id="walletInput"
-placeholder="Enter MetaMask Wallet Address"
-style="
-width:90%;
-max-width:400px;
-padding:14px;
-border-radius:12px;
-border:none;
-outline:none;
-font-size:16px;
-text-align:center;
-">
 
-<br><br>
+/* FIREBASE CONFIG */
 
-<button id="saveWalletBtn"
-style="
-padding:14px 22px;
-border:none;
-border-radius:12px;
-background:gold;
-color:black;
-font-weight:bold;
-font-size:16px;
-box-shadow:0 0 20px gold;
-">
+const firebaseConfig = {
 
-SAVE WALLET
+  apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
 
-</button>
+  authDomain: "aympon-cosmic.firebaseapp.com",
 
-</div>
+  databaseURL:
+  "https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  projectId: "aympon-cosmic",
+
+  storageBucket:
+  "aympon-cosmic.firebasestorage.app",
+
+  messagingSenderId: "522570020265",
+
+  appId:
+  "1:522570020265:web:38ca29639f75428896c0b8",
+
+  measurementId: "G-Q6MKBT7DQ5"
+
+};
+
+
+/* INITIALIZE FIREBASE */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+
+/* TELEGRAM LOGIN */
+
+const tg = window.Telegram.WebApp;
+
+tg.expand();
+
+const user = tg.initDataUnsafe.user;
+
+
+let playerId;
+let username;
+let firstName;
+
+
+if(user){
+
+  playerId = "TG_" + user.id;
+
+  username = user.username || "unknown";
+
+  firstName = user.first_name || "Cosmic Player";
+
+}else{
+
+  </script>
 </body>
 <!-- INFO BUTTON -->
 
