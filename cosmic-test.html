@@ -1842,7 +1842,54 @@ alert(
 }
 
 });
+const saveWalletBtn =
+document.getElementById(
+"saveWalletBtn"
+);
 
+saveWalletBtn.addEventListener(
+"click",
+()=>{
+
+const wallet =
+document.getElementById(
+"walletInput"
+).value;
+
+if(wallet.length > 10){
+
+localStorage.setItem(
+"aymp_wallet",
+wallet
+);
+
+update(playerRef,{
+
+wallet: wallet
+
+});
+
+document.getElementById(
+"walletInput"
+).style.display = "none";
+
+document.getElementById(
+"saveWalletBtn"
+).style.display = "none";
+
+alert(
+"✅ Wallet Saved Successfully"
+);
+
+}else{
+
+alert(
+"❌ Invalid Wallet"
+);
+
+}
+
+});
 console.log(
 "AYMP Firebase Connected"
 );
