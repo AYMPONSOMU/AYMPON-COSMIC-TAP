@@ -1644,70 +1644,208 @@ alert("Wallet Saved");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
 import {
-  getDatabase,
-  ref,
-  set,
-  update,
-  onValue
+getDatabase,
+ref,
+set,
+update,
+onValue
 } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
-
-
-/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
+apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
 
-  authDomain: "aympon-cosmic.firebaseapp.com",
+authDomain: "aympon-cosmic.firebaseapp.com",
 
-  databaseURL:
-  "https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
+databaseURL: "https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
 
-  projectId: "aympon-cosmic",
+projectId: "aympon-cosmic",
 
-  storageBucket:
-  "aympon-cosmic.firebasestorage.app",
+storageBucket: "aympon-cosmic.firebasestorage.app",
 
-  messagingSenderId: "522570020265",
+messagingSenderId: "522570020265",
 
-  appId:
-  "1:522570020265:web:38ca29639f75428896c0b8",
+appId: "1:522570020265:web:38ca29639f75428896c0b8",
 
-  measurementId: "G-Q6MKBT7DQ5"
+measurementId: "G-Q6MKBT7DQ5"
 
 };
-
-
-/* INITIALIZE FIREBASE */
 
 const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
-
-/* TELEGRAM LOGIN */
+/* TELEGRAM */
 
 const tg = window.Telegram.WebApp;
 
+let tgUser;
+
+try{
+
 tg.expand();
 
-const user = tg.initDataUnsafe.user;
+tgUser = tg.initDataUnsafe.user;
 
+}catch(e){
 
-let playerId;
-let username;
-let firstName;
+console.log("Telegram Not Found");
 
+}
 
-if(user){
+/* PLAYER ID */
 
-  playerId = "TG_" + user.id;
+let playerId =
+localStorage.getItem("aymp_player_id");
 
-  username = user.username || "unknown";
+if(!playerId){
 
-  firstName = user.first_name || "Cosmic Player";
+if(tgUser){
+
+playerId =
+"TG_" + tgUser.id;
 
 }else{
+
+playerId =
+"PLAYER_" + Date.now();
+
+}
+
+localStorage.setItem(
+"aymp_player_id",
+playerId
+);
+
+}
+
+/* PLAYER DATABASE */
+
+const playerRef =
+ref(db,"players/" + playerId);
+
+/* SAVE PLAYER */
+
+function savePlayer(){
+
+const latestScore =
+parseInt(
+localStorage.getItem("aymponScore")
+) || 0;
+
+set(playerRef,{
+
+id: playerId,
+
+score: latestScore,
+
+wallet:
+localStorage.getItem("aymp_wallet") || "",
+
+username:
+tgUser?.username || "cosmic_player",
+
+name:
+tgUser?.first_name || "Cosmic Player",
+
+level:
+document.getElementById("level").innerText,
+
+lastSeen:
+new Date().toLocaleString(),
+
+userAgent:
+navigator.userAgent
+
+});
+
+}
+
+/* FIRST SAVE */
+
+savePlayer();
+
+/* AUTO SAVE */
+
+setInterval(()=>{
+
+savePlayer();
+
+},5000);
+
+/* ONLINE PLAYERS */
+
+const playersRef =
+ref(db,"players");
+
+onValue(playersRef,(snapshot)=>{
+
+const data =
+snapshot.val();
+
+if(data){
+
+const total =
+Object.keys(data).length;
+
+document.getElementById(
+"onlinePlayers"
+).innerHTML =
+
+"🌌 " +
+total +
+" Cosmic Players Online";
+
+}
+
+});
+
+/* SAVE WALLET */
+
+const saveWalletBtn =
+document.getElementById(
+"saveWalletBtn"
+);
+
+saveWalletBtn.addEventListener(
+"click",
+()=>{
+
+const wallet =
+document.getElementById(
+"walletInput"
+).value;
+
+if(wallet.length > 10){
+
+localStorage.setItem(
+"aymp_wallet",
+wallet
+);
+
+update(playerRef,{
+
+wallet: wallet
+
+});
+
+alert(
+"✅ Wallet Saved"
+);
+
+}else{
+
+alert(
+"❌ Invalid Wallet"
+);
+
+}
+
+});
+
+console.log(
+"AYMP Firebase Connected"
+);
 
   </script>
 </body>
