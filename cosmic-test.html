@@ -985,7 +985,19 @@ color:white;
 </div>
 
 <!-- FOOTER -->
+<div class="reward-box">
 
+<h3>
+🏆 COSMIC LEADERBOARD
+</h3>
+
+<div id="leaderboard">
+
+Loading Leaderboard...
+
+</div>
+
+</div>
 <footer class="footer">
 
 © 2026 AYMPONSOMU COSMIC TAP™
@@ -1890,6 +1902,54 @@ alert(
 }
 
 });
+ /* LEADERBOARD */
+
+onValue(playersRef,(snapshot)=>{
+
+const data = snapshot.val();
+
+if(data){
+
+const players =
+Object.values(data);
+
+players.sort(
+(a,b)=>(b.score || 0) - (a.score || 0)
+);
+
+let html = "";
+
+players.slice(0,10).forEach((player,index)=>{
+
+html +=
+`
+<div style="
+margin-top:10px;
+padding:10px;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+">
+
+#${index+1}
+⭐ ${player.name || "Player"}
+
+<br>
+
+⚡ Score:
+${player.score || 0}
+
+</div>
+`;
+
+});
+
+document.getElementById(
+"leaderboard"
+).innerHTML = html;
+
+}
+
+});   
 console.log(
 "AYMP Firebase Connected"
 );
