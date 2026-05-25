@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AYMP Admin Panel</title>
+
+<style>
+
+body{
+
+background:black;
+
+color:white;
+
+font-family:Arial,sans-serif;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+h1{
+
+color:gold;
+
+margin-bottom:25px;
+
+text-shadow:
+0 0 15px gold;
+
+}
+
+input{
+
+width:90%;
+max-width:320px;
+
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:18px;
+
+text-align:center;
+
+margin-top:20px;
+
+}
+
+button{
+
+margin-top:20px;
+
+padding:14px 24px;
+
+border:none;
+
+border-radius:12px;
+
+background:gold;
+
+color:black;
+
+font-weight:bold;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+#adminPanel{
+
+display:none;
+
+margin-top:30px;
+
+}
+
+.player{
+
+background:
+rgba(255,255,255,0.05);
+
+padding:18px;
+
+border-radius:15px;
+
+margin-top:15px;
+
+text-align:left;
+
+border:
+1px solid rgba(255,255,255,0.1);
+
+word-break:break-word;
+
+}
+
+.wallet{
+
+color:#00ffff;
+
+margin-top:8px;
+
+font-size:14px;
+
+}
+
+.score{
+
+color:gold;
+
+margin-top:8px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+🔒 AYMP ADMIN PANEL
+</h1>
+
+<div id="loginBox">
+
+<p>
+Enter Admin Password
+</p>
+
+<input
+type="password"
+id="passwordInput"
+placeholder="Admin Password">
+
+<br>
+
+<button onclick="checkPassword()">
+
+OPEN PANEL
+
+</button>
+
+</div>
+
+<div id="adminPanel">
+
+<h2>
+✅ Reward Eligible Players
+</h2>
+
+<div id="playersList">
+
+Loading Players...
+
+</div>
+
+</div>
+
+<script>
+
+const ADMIN_PASSWORD =
+"AYMP2026@ADMIN";
+
+function checkPassword(){
+
+const entered =
+document.getElementById(
+"passwordInput"
+).value;
+
+if(entered === ADMIN_PASSWORD){
+
+document.getElementById(
+"loginBox"
+).style.display = "none";
+
+document.getElementById(
+"adminPanel"
+).style.display = "block";
+
+loadPlayers();
+
+}else{
+
+alert(
+"Wrong Password"
+);
+
+}
+
+}
+
+</script>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+getDatabase,
+ref,
+onValue
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
+
+authDomain: "aympon-cosmic.firebaseapp.com",
+
+databaseURL:
+"https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+projectId: "aympon-cosmic",
+
+storageBucket:
+"aympon-cosmic.firebasestorage.app",
+
+messagingSenderId: "522570020265",
+
+appId:
+"1:522570020265:web:38ca29639f75428896c0b8",
+
+measurementId: "G-Q6MKBT7DQ5"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getDatabase(app);
+
+window.loadPlayers = function(){
+
+const playersRef =
+ref(db,"players");
+
+onValue(playersRef,(snapshot)=>{
+
+const data = snapshot.val();
+
+if(data){
+
+const players =
+Object.values(data);
+
+const eligible =
+players.filter(
+p => p.wallet
+);
+
+eligible.sort(
+(a,b)=>(b.score||0)-(a.score||0)
+);
+
+let html = "";
+
+eligible.forEach((player,index)=>{
+
+html +=
+`
+<div class="player">
+
+<div>
+🏆 Rank:
+${index+1}
+</div>
+
+<div class="score">
+⚡ Score:
+${player.score || 0}
+</div>
+
+<div>
+👤 Player:
+${player.playerId || "Unknown"}
+</div>
+
+<div class="wallet">
+🦊 Wallet:
+${player.wallet || "No Wallet"}
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById(
+"playersList"
+).innerHTML = html;
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
