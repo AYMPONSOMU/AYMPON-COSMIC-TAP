@@ -746,12 +746,28 @@ transform:translateY(0px);
 }
 
   }
+  .game-overlay-logo {
+    position: fixed;      /* திரையில் ஒரே இடத்தில் நிலையாக வைக்க */
+    top: 15px;            /* மேலிருந்து எவ்வளவு தூரம் */
+    right: 15px;          /* வலதுபுறத்தில் இருந்து எவ்வளவு தூரம் */
+    z-index: 99999;       /* கேமில் உள்ள மற்ற பட்டன்களுக்கு மேலே தெரிய */
+    pointer-events: none; /* படம் மீது தொட்டாலும் கீழே உள்ள கேம் டாப் (Tap) வேலை செய்யும் */
+}
+
+.game-overlay-logo img {
+    width: 45px;          /* படத்தின் அளவு (தேவைக்கேற்ப மாற்றலாம்) */
+    height: auto;
+    border-radius: 8px;   /* ஓரங்களை வளைக்க */
+    opacity: 0.9;         /* கேமுடன் அழகாகப் பொருந்த */
+  }
 </style>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 
 <body>
-
+<div class="game-overlay-logo">
+    <img src="./assets/small-logo.png" alt="Cosmic Logo">
+</div>
 <!-- LOADER -->
 
 <div id="loader">
