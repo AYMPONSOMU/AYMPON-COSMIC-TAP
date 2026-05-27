@@ -2,212 +2,140 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYMP Leaderboard</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
 
-<meta charset="UTF-8">
+        h1 {
+            color: gold;
+            text-shadow: 0 0 15px gold;
+            margin-bottom: 30px;
+        }
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+        .player {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-<title>AYMP Leaderboard</title>
+        .rank {
+            color: gold;
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-<style>
+        .player-name {
+            font-size: 18px;
+            color: white;
+            margin-left: 10px;
+        }
 
-body{
+        .score {
+            color: #00ffff;
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-background:black;
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 24px;
+            background: gold;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
 
-color:white;
-
-font-family:Arial,sans-serif;
-
-padding:20px;
-
-text-align:center;
-
-}
-
-h1{
-
-color:gold;
-
-text-shadow:0 0 15px gold;
-
-margin-bottom:30px;
-
-}
-
-.player{
-
-background:
-rgba(255,255,255,0.05);
-
-padding:15px;
-
-margin-top:15px;
-
-border-radius:15px;
-
-border:
-1px solid rgba(255,255,255,0.1);
-
-}
-
-.rank{
-
-color:gold;
-
-font-size:22px;
-
-font-weight:bold;
-
-}
-
-.score{
-
-color:#00ffff;
-
-margin-top:8px;
-
-}
-
-.back-btn{
-
-display:inline-block;
-
-margin-top:30px;
-
-padding:14px 24px;
-
-background:gold;
-
-color:black;
-
-text-decoration:none;
-
-font-weight:bold;
-
-border-radius:12px;
-
-}
-
-</style>
-
+        .back-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 10px gold;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>
-🏆 COSMIC LEADERBOARD
-</h1>
+    <h1>🏆 COSMIC LEADERBOARD</h1>
 
-<div id="leaderboard">
+    <div id="leaderboard">
+        Loading Players...
+    </div>
 
-Loading Players...
+    <a href="cosmic-test.html" class="back-btn">
+        ⬅ BACK TO GAME
+    </a>
 
-</div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
-<a href="cosmic-test.html"
-class="back-btn">
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
+            authDomain: "aympon-cosmic.firebaseapp.com",
+            databaseURL: "https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "aympon-cosmic",
+            storageBucket: "aympon-cosmic.firebasestorage.app",
+            messagingSenderId: "522570020265",
+            appId: "1:522570020265:web:38ca29639f75428896c0b8",
+            measurementId: "G-Q6MKBT7DQ5"
+        };
 
-⬅ BACK TO GAME
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const playersRef = ref(db, "players");
 
-</a>
+        onValue(playersRef, (snapshot) => {
+            const data = snapshot.val();
+            const leaderboardContainer = document.getElementById("leaderboard");
 
-<script type="module">
+            if (data) {
+                // Firebase தரவை அரே (Array) வடிவிற்கு மாற்றுதல்
+                const players = Object.values(data);
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+                // புள்ளிகளின் அடிப்படையில் ஏறுவரிசையில் (High to Low Score) வரிசைப்படுத்துதல்
+                players.sort((a, b) => (b.score || 0) - (a.score || 0));
 
-import {
-getDatabase,
-ref,
-onValue
-}
-from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+                let html = "";
+                
+                // முதல் 50 வீரர்களை மட்டும் எடுத்து லூப் செய்தல்
+                players.slice(0, 50).forEach((player, index) => {
+                    html += `
+                    <div class="player">
+                        <div>
+                            <span class="rank">#${index + 1}</span>
+                            <span class="player-name">${player.name || "Cosmic Player"}</span>
+                        </div>
+                        <div class="score">
+                            ⚡ ${player.score || 0}
+                        </div>
+                    </div>
+                    `;
+                });
 
-const firebaseConfig = {
-
-apiKey: "AIzaSyDtYxS2pMtpZ7vxcMzy1njFNMNncmXSd1s",
-
-authDomain: "aympon-cosmic.firebaseapp.com",
-
-databaseURL:
-"https://aympon-cosmic-default-rtdb.asia-southeast1.firebasedatabase.app",
-
-projectId: "aympon-cosmic",
-
-storageBucket:
-"aympon-cosmic.firebasestorage.app",
-
-messagingSenderId: "522570020265",
-
-appId:
-"1:522570020265:web:38ca29639f75428896c0b8",
-
-measurementId: "G-Q6MKBT7DQ5"
-
-};
-
-const app =
-initializeApp(firebaseConfig);
-
-const db =
-getDatabase(app);
-
-const playersRef =
-ref(db,"players");
-
-onValue(playersRef,(snapshot)=>{
-
-const data =
-snapshot.val();
-
-if(data){
-
-const players =
-Object.values(data);
-
-players.sort(
-(a,b)=>(b.score || 0) - (a.score || 0)
-);
-
-let html = "";
-
-players.slice(0,50).forEach((player,index)=>{
-
-html +=
-`
-<div class="player">
-
-<div class="rank">
-
-#${index+1}
-
-${player.name || "Cosmic Player"}
-
-</div>
-
-<div class="score">
-
-⚡ Score:
-${player.score || 0}
-
-</div>
-
-</div>
-`;
-
-});
-
-document.getElementById(
-"leaderboard"
-).innerHTML = html;
-
-}
-
-});
-
-</script>
+                leaderboardContainer.innerHTML = html;
+            } else {
+                leaderboardContainer.innerHTML = "<p style='color:gray;'>No cosmic players found yet!</p>";
+            }
+        });
+    </script>
 
 </body>
 </html>
